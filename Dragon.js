@@ -8,7 +8,7 @@ class Dragon extends Creatures {
         this.strength += 10;
         this.mood +=10;
 
-        console.log(`~ ${this.name} takes to the skies and within monents has disapeared off into the distance.  ${this.name} shortly returns carrying a large elephant in his mouth.`);
+        console.log(`~ ${this.name} takes to the skies and within monents has disapeared off into the distance.  ${this.name} shortly returns carrying a large elephant in his mouth. ${this.noise}!`);
 
         return this;
     }
@@ -19,7 +19,7 @@ class Dragon extends Creatures {
         this.hunger -= 20;
         this.mood += 10;
 
-        console.log(`~ You let ${this.name} set a whole village ablaze.`);
+        console.log(`~ You let ${this.name} set a whole village ablaze. ${this.noise}!`);
         
         return this;
     }

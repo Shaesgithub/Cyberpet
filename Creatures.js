@@ -1,9 +1,10 @@
 //MAIN CREATURES CLASS
 
 class Creatures {
-    constructor(name) {
+    constructor(name, noise) {
 
         this.name = name;
+        this.noise = noise;
         this.health = 50;
         this.strength = 50;
         this.hunger = 50;
@@ -30,6 +31,7 @@ class Creatures {
 
         return console.table({
         name: this.name,
+        noise: this.noise,
         health: this.health,
         strength: this.strength,
         hunger: this.hunger,

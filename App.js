@@ -63,13 +63,20 @@ async function startGame() {
         type: "input",
     });
 
+    //Ask the user what noise their pet makes
+    const { noise } = await inquirer.prompt({
+        message:"And what noise does your creature make?",
+        name: "noise",
+        type: "input",
+    })
+
     //It will refer to the creature subclass chosen
-    if(typeCreature == "Werewolf") myCreature = new Werewolf(nameCreature);
-    else if(typeCreature == "Siren") myCreature = new Siren(nameCreature);
-    else if(typeCreature == "Pegasus") myCreature = new Pegasus(nameCreature);
-    else if(typeCreature == "Centaur") myCreature = new Centaur(nameCreature);
-    else if(typeCreature == "Phoenix") myCreature = new Phoenix(nameCreature);
-    else if(typeCreature == "Dragon") myCreature = new Dragon(nameCreature);
+    if(typeCreature == "Werewolf") myCreature = new Werewolf(nameCreature, noise);
+    else if(typeCreature == "Siren") myCreature = new Siren(nameCreature, noise);
+    else if(typeCreature == "Pegasus") myCreature = new Pegasus(nameCreature, noise);
+    else if(typeCreature == "Centaur") myCreature = new Centaur(nameCreature, noise);
+    else if(typeCreature == "Phoenix") myCreature = new Phoenix(nameCreature, noise);
+    else if(typeCreature == "Dragon") myCreature = new Dragon(nameCreature, noise);
 
     userChoice();
 };
