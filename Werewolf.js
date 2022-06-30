@@ -3,11 +3,9 @@ const {Creatures} = require("./Creatures.js");
 
 class Werewolf extends Creatures {
 
-    constructor(name, noise, fullmoon) {
+    constructor(name) {
 
-        super (name, noise, fullmoon);
-        this.noise = noise;
-        this.fullmoon = fullmoon;
+        super (name );
     }
 
     howl() {
@@ -16,7 +14,7 @@ class Werewolf extends Creatures {
         this.strength += 10;
         this.mood +=30;
 
-        console.log(`${this.name} is happy to ${this.noise} at the full moon but ${this.noise}ing makes them hungry`);
+        console.log(`~ ${this.name} is happy to howl at the full moon but howling makes them hungry`); 
 
         return this;
     }
@@ -26,11 +24,13 @@ class Werewolf extends Creatures {
         this.hunger -= 90;
         this.mood -=50;
 
-        console.log(`oh no! ${this.name} has ${this.fullmoon} in front of the full moon and is angry`);
+        console.log(`~ oh no! ${this.name} has transformed in front of the full moon!`);
         
         return this;
     }
 
 };
+
+
 
 module.exports = {Werewolf};

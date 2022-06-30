@@ -4,14 +4,14 @@ Theme: Mythical Creatures
 By: Shaun Billows & Cryshae Tucker
 */
 
-//Imports subclasses from Creature List folder
+//Imports subclasses
 const inquirer = require("inquirer");
 const {Werewolf} = require("./Werewolf.js");
 const {Siren} = require("./Siren.js");
 const {Pegasus} = require("./Pegasus.js");
-// const {} = require("./");
-// const {} = require("./");
-// const {} = require("./");
+const {Centaur} = require("./Centaur");
+const {Phoenix} = require("./Phoenix");
+const {Dragon} = require("./Dragon");
 
 let myCreature;
 
@@ -40,25 +40,25 @@ async function startGame() {
             },
             {
                 key:"4",
-                name:"",
-                value:""
+                name:"Centaur",
+                value:"Centaur"
             },
             {
                 key:"5",
-                name:"",
-                value:""
+                name:"Phoenix",
+                value:"Phoenix"
             },
             {
                 key:"6",
-                name:"",
-                value:""
+                name:"Dragon",
+                value:"Dragon"
             },
         ],
     });
 
     //Ask the user to create a name
     const { nameCreature } = await inquirer.prompt({
-        message:"Give your Mythical creature a name",
+        message:"Give your mythical creature a name",
         name: "nameCreature",
         type: "input",
     });
@@ -66,135 +66,41 @@ async function startGame() {
     //It will refer to the creature subclass chosen
     if(typeCreature == "Werewolf") myCreature = new Werewolf(nameCreature);
     else if(typeCreature == "Siren") myCreature = new Siren(nameCreature);
-    else if(typeCreature == "") myCreature = new (nameCreature);
+    else if(typeCreature == "Pegasus") myCreature = new Pegasus(nameCreature);
+    else if(typeCreature == "Centaur") myCreature = new Centaur(nameCreature);
+    else if(typeCreature == "Phoenix") myCreature = new Phoenix(nameCreature);
+    else if(typeCreature == "Dragon") myCreature = new Dragon(nameCreature);
 
     userChoice();
 };
 
-
-// async function userChoice() {
-
-//     const getMethodsOf = (obj) => {
-//         const methods = {}
-//         Object.getOwnPropertyNames( Object.getPrototypeOf(obj) ).forEach(methodName => {
-//             methods[methodName] = obj[methodName]
-//         })
-//         return Object.keys(methods).slice(1)
-//         }
-
-//     const { choose } = await inquirer.prompt({
-//         message:"What would you like your creature to do?",
-//         name:"choose",
-//         type:"list",
-//         choices: getMethodsOf(myCreature).concat(["eats", "status"])
-//         [  {
-//             key:"1",
-//             name:"Quit Game?",
-//             value:"quit"
-//         },
-//     ],
-//     });
-
-    // if (choose == "status") {myCreature.status()}
-    // if (choose == "eats") {myCreature.eats()}  
-
-    // const { choose } = await inquirer.prompt({
-    //     message:"What would you like your creature to do?",
-    //     name:"choose",
-    //     type:"list",
-    //     choices:[
-    //         {
-    //             key:"1",
-    //             name:"See your creatures status",
-    //             value:"status"
-    //         },
-    //         {
-    //             key:"2",
-    //             name:"Feed your creature",
-    //             value:"eat"
-    //         },
-    //         {
-    //             key:"3",
-    //             name:"Let them howl",
-    //             value:"howl"
-    //         },
-    //         {
-    //             key:"4",
-    //             name:"There's a full moon?",
-    //             value:"transform"
-    //         },
-    //         {
-    //             key:"5",
-    //             name:"Quit Game?",
-    //             value:"quit"
-    //         },
-    //     ],
-    // });
-
-
-
-//     if (choose == "status") await myCreature.status();
-//     if (choose == "eat") await myCreature.eat();
-//     if (choose == "howl") await myCreature.howl();
-//     if (choose == "transform") await myCreature.transform();
-//     if (choose == "quit") { const yesNo = await quitConfirm();
-//         if (yesNo) 
-//         return;
-//     }
-//     myCreature.status();
-//     userChoice()
-
-// };
-
-// async function quitConfirm() {
-
-//     const { yesNo } = await inquirer.prompt({
-//         message:" Do you want to quit the game?",
-//         name: "yesNo",
-//         type: "confirm"
-//     });
-
-    
-//     if (yesNo == true) return true;
-//     else return false;
-// };
-
-
-
-
-
-
-
-
-
 async function userChoice() {
 
-    const getMethodsOf = (obj) => {
-        const methods = {}
-        Object.getOwnPropertyNames( Object.getPrototypeOf(obj) ).forEach(methodName => {
-          methods[methodName] = obj[methodName]
-        })
-        return Object.keys(methods).slice(1)
-      }
-
+    // Check if cyberpet is alive
+    if (myCreature.health <= 0 || myCreature.hunger <= 0) {
+        console.log(`${myCreature.name} has gone to a better place.`)
+        playAgain()
+        return 0
+    }
+    //Ask the user what they want to do with their creature
     const { choose } = await inquirer.prompt({
         message:"What would you like your creature to do?",
         name:"choose",
         type:"list",
-        choices: getMethodsOf(myCreature).concat(["eats", "status"]),
+        choices: getMethodsOf(myCreature).concat(["eat", "status","quit"]),
     })
 
     // All 
+    if (choose == "eat") {
+        myCreature.eat()
+    }
     if (choose == "status") {
         myCreature.status()
     }
-    if (choose == "eats") {
-        myCreature.eats()
-    }  
-    // Warewolf
+    // Werewolf
     if (choose == "howl") {
         myCreature.howl()
-    }  
+    }
     if (choose == "transform") {
         myCreature.transform()
     }
@@ -205,13 +111,71 @@ async function userChoice() {
     if (choose == "swim") {
         myCreature.swim()
     }
+    // Pegasus
+    if (choose == "flight") {
+        myCreature.flight()
+    }
+    if (choose == "immortality") {
+        myCreature.immortality()
+    }
+    // Centaur
+    if (choose == "gallop") {
+        myCreature.gallop()
+    }
+    if (choose == "targetPracrice") {
+        myCreature.targetPracrice()
+    }
     // Phoenix
-    // if (choose == "fly") {
-    //     myCreature.fly()
-    // }  
-    // if (choose == "explode") {
-    //     myCreature.explode()
-    // }
+    if (choose == "fly") {
+        myCreature.fly()
+    }
+    if (choose == "reincarnate") {
+        myCreature.reincarnate()
+    }
+    // Dragon
+    if (choose == "hunt") {
+        myCreature.hunt()
+    }
+    if (choose == "breathFire") {
+        myCreature.breathFire()
+    }
+    // quit
+    if (choose =="quit") {
+        quit()
+        return 0
+    }
     userChoice()
 }
+
+//Ask the user if they want to play again
+const playAgain = async () => {
+    const replay = await inquirer.prompt([
+        {
+            type: "confirm",
+            name: "confirmation",
+            message: "Would you like to play again? (Y/N) : "
+        }
+    ])
+    if (replay.confirmation) {
+        startGame()
+    } else {
+        quit()
+    }
+}
+
+const quit = () => {
+    console.log("Thank you for playing our game.")
+}
+
+
+const getMethodsOf = (obj) => {
+    const methods = {}
+    Object.getOwnPropertyNames( Object.getPrototypeOf(obj) ).forEach(methodName => {
+      methods[methodName] = obj[methodName]
+    })
+    return Object.keys(methods).slice(1)
+}
+
 startGame();
+
+module.exports = {startGame, userChoice, playAgain, quit, getMethodsOf};

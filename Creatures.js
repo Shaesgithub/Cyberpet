@@ -10,15 +10,17 @@ class Creatures {
         this.mood = 50;
     }
 
-    eats() {
+    eat() {
 
         this.hunger += 20;
         this.health += 5;
         this.strength += 5;
 
-        console.log(`${this.name}'s hunger is ${this.hunger}`);
-        console.log(`${this.name}'s health is ${this.health}`);
-        console.log(`${this.name}'s strength is ${this.strength}`);
+        console.log(`~ ${this.name} thanks you for the food!`);
+
+        console.log(`~ ${this.name}'s hunger is now ${this.hunger}`);
+        console.log(`~ ${this.name}'s health is now ${this.health}`);
+        console.log(`~ ${this.name}'s strength is now ${this.strength}`);
         
         return this
     }
