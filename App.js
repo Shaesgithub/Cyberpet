@@ -122,8 +122,8 @@ async function userChoice() {
     if (choose == "gallop") {
         myCreature.gallop()
     }
-    if (choose == "targetPracrice") {
-        myCreature.targetPracrice()
+    if (choose == "targetPractice") {
+        myCreature.targetPractice()
     }
     // Phoenix
     if (choose == "fly") {

@@ -14,7 +14,7 @@ class Centaur extends Creatures {
     }
 
 
-    targetPracrice() {
+    targetPractice() {
 
         this.hunger -= 10;
         this.mood +=50;
