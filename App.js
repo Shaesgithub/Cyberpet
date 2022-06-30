@@ -3,6 +3,8 @@ Command Line Cyber Pet Project
 Theme: Mythical Creatures
 By: Shaun Billows & Cryshae Tucker
 */
+const readline = require('readline');
+const fs = require('fs');
 
 //Imports subclasses
 const inquirer = require("inquirer");
@@ -77,6 +79,13 @@ async function startGame() {
     else if(typeCreature == "Centaur") myCreature = new Centaur(nameCreature, noise);
     else if(typeCreature == "Phoenix") myCreature = new Phoenix(nameCreature, noise);
     else if(typeCreature == "Dragon") myCreature = new Dragon(nameCreature, noise);
+
+    // display creature ascii art
+    const displayTextFile = readline.createInterface({
+        input: fs.createReadStream(`./ascii-art/${typeCreature}.text`),
+        output: process.stdout,
+        console: true
+    });
 
     userChoice();
 };
