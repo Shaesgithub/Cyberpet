@@ -24,7 +24,7 @@ class Pegasus extends Creatures {
         
         this.health += 1000;
         this.strength += 1000;
-        console.log(`~ ${this.name}'s health and strength is ${this.health}+ & ${this.strength}+ because Pegasus are immortal!`);
+        console.log(`~ ${this.name}'s health and strength is ${this.health}+ & ${this.strength}+ because Pegasus are immortal! ${this.noise}!`);
 
         return this;
     }

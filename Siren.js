@@ -26,7 +26,7 @@ class Siren extends Creatures {
         this.hunger -= 10;
         this.mood +=50;
 
-        console.log(`~ You let ${this.name} swim! ${this.name}'s mood is now at ${this.mood}`);
+        console.log(`~ You let ${this.name} swim! ${this.name}'s mood is now at ${this.mood} ${this.noise}!`);
 
         return this;
     }

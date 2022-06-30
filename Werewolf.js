@@ -14,7 +14,7 @@ class Werewolf extends Creatures {
         this.strength += 10;
         this.mood +=30;
 
-        console.log(`~ ${this.name} is happy to howl at the full moon but howling makes them hungry`); 
+        console.log(`~ ${this.name} is happy to howl at the full moon but howling makes them hungry ${this.noise}!`); 
 
         return this;
     }
