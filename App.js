@@ -5,6 +5,7 @@ By: Shaun Billows & Cryshae Tucker
 */
 const readline = require('readline');
 const fs = require('fs');
+const { log, getMethodsOf } = require('./helpers')
 
 
 //Imports subclasses
@@ -90,16 +91,12 @@ async function startGame() {
         output: process.stdout,
         console: true
     });
+    
     // Display delayed text
-    const log = funkylog({ delay: 80, randomized: true });
+    log('\nThis is your mythical creature! Click the up or down arrows to continue!\n');
 
+    userChoice();
 
-    const timeOut = setTimeout( () => {
-        log('\nThis is your mythical creature! Click the up or down arrows to continue!\n');
-        setTimeout( () => {
-            userChoice();
-        }, 4000)
-    }, 1500)
 };
 
 
@@ -198,27 +195,5 @@ const playAgain = async () => {
 const quit = () => {
     console.log("Thank you for playing our game.")
 }
-
-const getMethodsOf = (obj) => {
-    const methods = {}
-    Object.getOwnPropertyNames( Object.getPrototypeOf(obj) ).forEach(methodName => {
-      methods[methodName] = obj[methodName]
-    })
-    return Object.keys(methods).slice(1)
-}
-
-const funkylog = ({ delay, randomized }) => {
-    const sleep = (ms) => {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    };
-      
-    return async (s) => {
-      for (const c of s) {
-        process.stdout.write(c);
-        await sleep((randomized ? Math.random() : 1) * delay);
-      }
-      process.stdout.write('\n');
-    }
-};
 
 startGame();

@@ -14,4 +14,12 @@ const funkylog = ({ delay, randomized }) => {
 
 const log = funkylog({ delay: 80, randomized: true });
 
-module.exports = { log }
+const getMethodsOf = (obj) => {
+    const methods = {}
+    Object.getOwnPropertyNames( Object.getPrototypeOf(obj) ).forEach(methodName => {
+      methods[methodName] = obj[methodName]
+    })
+    return Object.keys(methods).slice(1)
+}
+
+module.exports = { log, getMethodsOf }
