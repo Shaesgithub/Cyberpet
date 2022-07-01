@@ -219,5 +219,3 @@ const funkylog = ({ delay, randomized }) => {
 };
 
 startGame();
-
-module.exports = {startGame, inquirer};
