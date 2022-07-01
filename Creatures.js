@@ -1,5 +1,7 @@
 //MAIN CREATURES CLASS
 
+const { log } = require("./helpers")
+
 class Creatures {
     constructor(name, noise) {
 
@@ -17,11 +19,11 @@ class Creatures {
         this.health += 5;
         this.strength += 5;
 
-        console.log(`~ ${this.name} thanks you for the food!`);
+        console.log(`\n~ ${this.name} thanks you for the food!`);
 
-        console.log(`~ ${this.name}'s hunger is now ${this.hunger}`);
-        console.log(`~ ${this.name}'s health is now ${this.health}`);
-        console.log(`~ ${this.name}'s strength is now ${this.strength}`);
+        console.log(`\n~ ${this.name}'s hunger is now ${this.hunger}.`);
+        console.log(`~ ${this.name}'s health is now ${this.health}.`);
+        console.log(`~ ${this.name}'s strength is now ${this.strength}.\n`);
         
         return this
     }
@@ -37,6 +39,12 @@ class Creatures {
         hunger: this.hunger,
         mood: this.mood});
 
+    }
+    
+    pet() {
+        console.log(`\n~ ${this.noise}!\n`)
+
+        return this
     }
 };
 

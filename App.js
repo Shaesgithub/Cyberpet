@@ -116,10 +116,13 @@ async function userChoice() {
         message:"What would you like your creature to do?",
         name:"choose",
         type:"list",
-        choices: getMethodsOf(myCreature).concat(["eat", "status","quit"]),
+        choices: getMethodsOf(myCreature).concat(["eat", "status","quit", "pet"]),
     })
 
     // All 
+    if (choose == "pet") {
+        myCreature.pet()
+    }
     if (choose == "eat") {
         myCreature.eat()
     }
