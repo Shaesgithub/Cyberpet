@@ -100,8 +100,8 @@ async function userChoice() {
     // Check if cyberpet is alive
     if (myCreature.health <= 0 || myCreature.hunger <= 0) {
         let stat;
-        if (myCreature.health < 0) {stat = 'health'}
-        if (myCreature.hunger < 0) {stat = 'hunger'}
+        if (myCreature.health <= 0) {stat = 'health'}
+        if (myCreature.hunger <= 0) {stat = 'hunger'}
         console.log(`Oh no, your ${stat} level has reached 0.  ${myCreature.name} has gone to a better place.\n`)
         playAgain()
         return 0
