@@ -92,12 +92,14 @@ async function startGame() {
     });
     // Display delayed text
     const log = funkylog({ delay: 80, randomized: true });
-    log('\nThis is you mythical creature! Click the up or down arrows to continue!\n');
 
 
-    userChoice();
-    
-    
+    const timeOut = setTimeout( () => {
+        log('\nThis is your mythical creature! Click the up or down arrows to continue!\n');
+        setTimeout( () => {
+            userChoice();
+        }, 4000)
+    }, 1500)
 };
 
 
