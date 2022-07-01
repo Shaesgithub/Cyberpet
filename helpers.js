@@ -1,7 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 
-const logTextFile = (file) => {
+const logAsciiArt = (file) => {
     const displayTextFile = readline.createInterface({
         input: fs.createReadStream(file),
         output: process.stdout,
@@ -33,4 +33,4 @@ const getMethodsOf = (obj) => {
     return Object.keys(methods).slice(1)
 }
 
-module.exports = { funkyLog, getMethodsOf, logTextFile }
+module.exports = { funkyLog, getMethodsOf, logAsciiArt }

@@ -5,7 +5,7 @@ By: Shaun Billows & Cryshae Tucker
 */
 const readline = require('readline');
 const fs = require('fs');
-const { funkyLog, getMethodsOf, logTextFile } = require('./helpers')
+const { funkyLog, getMethodsOf, logAsciiArt } = require('./helpers')
 
 
 //Imports subclasses
@@ -117,62 +117,33 @@ async function userChoice() {
     })
 
     // All 
-    if (choose == "pet") {
-        myCreature.pet()
-    }
-    if (choose == "eat") {
-        myCreature.eat()
-    }
-    if (choose == "status") {
-        myCreature.status()
-    }
+    if (choose == "pet") {myCreature.pet()}
+    if (choose == "eat") {myCreature.eat()}
+    if (choose == "status") { myCreature.status()}
     // Werewolf
-    if (choose == "howl") {
-        myCreature.howl()
-    }
-    if (choose == "transform") {
-        myCreature.transform()
-    }
+    if (choose == "howl") {myCreature.howl()}
+    if (choose == "transform") {myCreature.transform()}
     // Siren
-    if (choose == "sing") {
-        myCreature.sing()
-    }
-    if (choose == "swim") {
-        myCreature.swim()
-    }
+    if (choose == "sing") {myCreature.sing()}
+    if (choose == "swim") {myCreature.swim()}
     // Pegasus
-    if (choose == "flight") {
-        myCreature.flight()
-    }
-    if (choose == "immortality") {
-        myCreature.immortality()
-    }
+    if (choose == "flight") {myCreature.flight()}
+    if (choose == "immortality") {myCreature.immortality()}
     // Centaur
-    if (choose == "gallop") {
-        myCreature.gallop()
-    }
-    if (choose == "targetPractice") {
-        myCreature.targetPractice()
-    }
+    if (choose == "gallop") {myCreature.gallop()}
+    if (choose == "targetPractice") {myCreature.targetPractice()}
     // Phoenix
-    if (choose == "fly") {
-        myCreature.fly()
-    }
-    if (choose == "reincarnate") {
-        myCreature.reincarnate()
-    }
+    if (choose == "fly") {myCreature.fly()}
+    if (choose == "reincarnate") {myCreature.reincarnate()}
     // Dragon
-    if (choose == "hunt") {
-        myCreature.hunt()
-    }
-    if (choose == "breathFire") {
-        myCreature.breathFire()
-    }
+    if (choose == "hunt") {myCreature.hunt()}
+    if (choose == "breathFire") {myCreature.breathFire()}
     // quit
     if (choose =="quit") {
         quit()
         return 0
     }
+
     userChoice()
 }
 
@@ -195,8 +166,8 @@ const playAgain = async () => {
 const quit = () => {
     console.log("\nThank you for playing our game.")
 
-    // print the credits
-    logTextFile(`./ascii-art/credits.text`)
+    // play credits
+    logAsciiArt(`./ascii-art/credits.text`)
 }
 
-startGame();
+startGame()
