@@ -18,6 +18,11 @@ const {Dragon} = require("./Dragon");
 
 let myCreature;
 
+const intro = () => {
+    console.log("\nWelcome to Mythical creatures.\n")
+    startGame()
+}
+
 
 async function startGame() {
 
@@ -168,4 +173,4 @@ const quit = () => {
     logAsciiArt('credits')
 }
 
-startGame()
+intro()
