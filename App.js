@@ -86,7 +86,7 @@ async function startGame() {
 
     
     // display creature ascii art
-    logAsciiArt(`./ascii-art/${typeCreature}.text`)
+    logAsciiArt(typeCreature)
     
     // Display delayed text
     funkyLog('\nThis is your mythical creature! Click the up or down arrows to continue!\n');
@@ -163,7 +163,7 @@ const quit = () => {
     console.log("\nThank you for playing our game.")
 
     // play credits
-    logAsciiArt(`./ascii-art/credits.text`)
+    logAsciiArt('credits')
 }
 
 startGame()

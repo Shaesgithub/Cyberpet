@@ -3,7 +3,7 @@ const readline = require('readline');
 
 const logAsciiArt = (file) => {
     const displayTextFile = readline.createInterface({
-        input: fs.createReadStream(file),
+        input: fs.createReadStream(`./ascii-art/${file}.text`),
         output: process.stdout,
         console: true
     });
