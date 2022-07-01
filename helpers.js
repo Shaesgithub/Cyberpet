@@ -1,3 +1,14 @@
+const fs = require('fs');
+const readline = require('readline');
+
+const logTextFile = (file) => {
+    const displayTextFile = readline.createInterface({
+        input: fs.createReadStream(file),
+        output: process.stdout,
+        console: true
+    });
+}
+
 const funkylog = ({ delay, randomized }) => {
     const sleep = (ms) => {
       return new Promise(resolve => setTimeout(resolve, ms));
@@ -12,7 +23,7 @@ const funkylog = ({ delay, randomized }) => {
     }
 };
 
-const log = funkylog({ delay: 80, randomized: true });
+const funkyLog = funkylog({ delay: 80, randomized: true });
 
 const getMethodsOf = (obj) => {
     const methods = {}
@@ -22,4 +33,4 @@ const getMethodsOf = (obj) => {
     return Object.keys(methods).slice(1)
 }
 
-module.exports = { log, getMethodsOf }
+module.exports = { funkyLog, getMethodsOf, logTextFile }

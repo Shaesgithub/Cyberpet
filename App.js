@@ -5,7 +5,7 @@ By: Shaun Billows & Cryshae Tucker
 */
 const readline = require('readline');
 const fs = require('fs');
-const { log, getMethodsOf } = require('./helpers')
+const { funkyLog, getMethodsOf, logTextFile } = require('./helpers')
 
 
 //Imports subclasses
@@ -71,7 +71,7 @@ async function startGame() {
 
     //Ask the user what noise their pet makes
     const { noise } = await inquirer.prompt({
-        message:"And what noise does your creature make? :",
+        message:"What noise does your creature make? :",
         name: "noise",
         type: "input",
     });
@@ -93,7 +93,7 @@ async function startGame() {
     });
     
     // Display delayed text
-    log('\nThis is your mythical creature! Click the up or down arrows to continue!\n');
+    funkyLog('\nThis is your mythical creature! Click the up or down arrows to continue!\n');
 
     userChoice();
 
@@ -193,7 +193,10 @@ const playAgain = async () => {
 }
 
 const quit = () => {
-    console.log("Thank you for playing our game.")
+    console.log("\nThank you for playing our game.")
+
+    // print the credits
+    logTextFile(`./ascii-art/credits.text`)
 }
 
 startGame();
