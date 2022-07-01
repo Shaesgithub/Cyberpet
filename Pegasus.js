@@ -2,13 +2,6 @@
 const {Creatures} = require("./Creatures.js");
 
 class Pegasus extends Creatures {
-
-    constructor(name, sky, life) {
-
-        super (name, sky, life);
-        this.sky = sky;
-        this.life = life;
-    }
     
     flight() {
 

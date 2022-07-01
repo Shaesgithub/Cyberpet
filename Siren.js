@@ -2,13 +2,6 @@
 const {Creatures} = require("./Creatures.js");
 
 class Siren extends Creatures {
-
-    constructor(name, sound, ocean) {
-
-        super (name, sound, ocean);
-        this.sound = sound;
-        this.ocean = ocean;
-    }
     
     sing() { 
 

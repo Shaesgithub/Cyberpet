@@ -6,6 +6,7 @@ By: Shaun Billows & Cryshae Tucker
 const readline = require('readline');
 const fs = require('fs');
 
+
 //Imports subclasses
 const inquirer = require("inquirer");
 const {Werewolf} = require("./Werewolf.js");
@@ -17,11 +18,13 @@ const {Dragon} = require("./Dragon");
 
 let myCreature;
 
+
 async function startGame() {
 
     //Ask the user to pick from a list of creatures
     const { typeCreature } = await inquirer.prompt({
-        message:"Pick a creature",
+        
+        message:"Pick a mythical creature",
         name: "typeCreature",
         type: "list",
         choices:[
@@ -70,7 +73,7 @@ async function startGame() {
         message:"And what noise does your creature make?",
         name: "noise",
         type: "input",
-    })
+    });
 
     //It will refer to the creature subclass chosen
     if(typeCreature == "Werewolf") myCreature = new Werewolf(nameCreature, noise);
@@ -80,15 +83,23 @@ async function startGame() {
     else if(typeCreature == "Phoenix") myCreature = new Phoenix(nameCreature, noise);
     else if(typeCreature == "Dragon") myCreature = new Dragon(nameCreature, noise);
 
+    
     // display creature ascii art
     const displayTextFile = readline.createInterface({
         input: fs.createReadStream(`./ascii-art/${typeCreature}.text`),
         output: process.stdout,
         console: true
     });
+    // Display delayed text
+    const log = funkylog({ delay: 80, randomized: true });
+    log('\nThis is you mythical creature! Click the up or down arrows to continue!\n');
+
 
     userChoice();
+    
+    
 };
+
 
 async function userChoice() {
 
@@ -183,7 +194,6 @@ const quit = () => {
     console.log("Thank you for playing our game.")
 }
 
-
 const getMethodsOf = (obj) => {
     const methods = {}
     Object.getOwnPropertyNames( Object.getPrototypeOf(obj) ).forEach(methodName => {
@@ -192,6 +202,20 @@ const getMethodsOf = (obj) => {
     return Object.keys(methods).slice(1)
 }
 
+const funkylog = ({ delay, randomized }) => {
+    const sleep = (ms) => {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    };
+      
+    return async (s) => {
+      for (const c of s) {
+        process.stdout.write(c);
+        await sleep((randomized ? Math.random() : 1) * delay);
+      }
+      process.stdout.write('\n');
+    }
+};
+
 startGame();
 
-module.exports = {startGame, userChoice, playAgain, quit, getMethodsOf};
+module.exports = {startGame, inquirer};

@@ -3,11 +3,6 @@ const {Creatures} = require("./Creatures.js");
 
 class Werewolf extends Creatures {
 
-    constructor(name) {
-
-        super (name );
-    }
-
     howl() {
 
         this.hunger -= 10;
