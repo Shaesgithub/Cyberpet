@@ -3,8 +3,7 @@ Command Line Cyber Pet Project
 Theme: Mythical Creatures
 By: Shaun Billows & Cryshae Tucker
 */
-const readline = require('readline');
-const fs = require('fs');
+
 const { funkyLog, getMethodsOf, logAsciiArt } = require('./helpers')
 
 
@@ -100,7 +99,10 @@ async function userChoice() {
 
     // Check if cyberpet is alive
     if (myCreature.health <= 0 || myCreature.hunger <= 0) {
-        console.log(`${myCreature.name} has gone to a better place.\n`)
+        let stat;
+        if (myCreature.health < 0) {stat = 'health'}
+        if (myCreature.hunger < 0) {stat = 'hunger'}
+        console.log(`Oh no, your ${stat} level has reached 0.  ${myCreature.name} has gone to a better place.\n`)
         playAgain()
         return 0
     }
