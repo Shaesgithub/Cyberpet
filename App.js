@@ -25,7 +25,7 @@ async function startGame() {
     //Ask the user to pick from a list of creatures
     const { typeCreature } = await inquirer.prompt({
         
-        message:"Pick a mythical creature",
+        message:"Pick a mythical creature :",
         name: "typeCreature",
         type: "list",
         choices:[
@@ -64,14 +64,14 @@ async function startGame() {
 
     //Ask the user to create a name
     const { nameCreature } = await inquirer.prompt({
-        message:"Give your mythical creature a name",
+        message:"Give your mythical creature a name :",
         name: "nameCreature",
         type: "input",
     });
 
     //Ask the user what noise their pet makes
     const { noise } = await inquirer.prompt({
-        message:"And what noise does your creature make?",
+        message:"And what noise does your creature make? :",
         name: "noise",
         type: "input",
     });
@@ -104,7 +104,7 @@ async function userChoice() {
 
     // Check if cyberpet is alive
     if (myCreature.health <= 0 || myCreature.hunger <= 0) {
-        console.log(`${myCreature.name} has gone to a better place.`)
+        console.log(`${myCreature.name} has gone to a better place.\n`)
         playAgain()
         return 0
     }
@@ -113,7 +113,7 @@ async function userChoice() {
         message:"What would you like your creature to do?",
         name:"choose",
         type:"list",
-        choices: getMethodsOf(myCreature).concat(["eat", "status","quit", "pet"]),
+        choices: getMethodsOf(myCreature).concat(["eat", "status", "pet", "quit"]),
     })
 
     // All 
@@ -182,7 +182,7 @@ const playAgain = async () => {
         {
             type: "confirm",
             name: "confirmation",
-            message: "Would you like to play again? (Y/N) : "
+            message: "Would you like to play again? : "
         }
     ])
     if (replay.confirmation) {

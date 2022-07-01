@@ -8,7 +8,7 @@ class Siren extends Creatures {
         this.strength -= 20;
         this.mood +=20;
 
-        console.log(`~ ${this.name} is a Siren and Sirens are happy to sing but be careful to not get hypnotized!`);
+        console.log(`\n~ ${this.name} is a Siren and Sirens are happy to sing but be careful to not get hypnotized!\n`);
 
         return this;
     }
@@ -19,7 +19,7 @@ class Siren extends Creatures {
         this.hunger -= 10;
         this.mood +=50;
 
-        console.log(`~ You let ${this.name} swim! ${this.name}'s mood is now at ${this.mood} ${this.noise}!`);
+        console.log(`\n~ You let ${this.name} swim! ${this.name}'s mood is now at ${this.mood} ${this.noise}!\n`);
 
         return this;
     }
