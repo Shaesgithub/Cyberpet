@@ -86,11 +86,7 @@ async function startGame() {
 
     
     // display creature ascii art
-    const displayTextFile = readline.createInterface({
-        input: fs.createReadStream(`./ascii-art/${typeCreature}.text`),
-        output: process.stdout,
-        console: true
-    });
+    logAsciiArt(`./ascii-art/${typeCreature}.text`)
     
     // Display delayed text
     funkyLog('\nThis is your mythical creature! Click the up or down arrows to continue!\n');
