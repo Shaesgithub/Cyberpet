@@ -5,8 +5,7 @@ class Pegasus extends Creatures {
     
     flight() {
 
-        this.mood += 10
-        this.hunger -= 20;
+        this.mood += 10;
         
         console.log(`\n~ You let ${this.name} fly! ${this.name}'s mood is now ${this.mood} but make sure they don't fly away!\n`);
 
