@@ -1,4 +1,4 @@
-const {Creatures} = require("./Creatures.js");
+const {Creatures} = require("../Creatures.js");
 
 class Centaur extends Creatures {
 

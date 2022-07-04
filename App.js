@@ -9,12 +9,12 @@ const { funkyLog, getMethodsOf, logAsciiArt } = require('./helpers')
 
 //Imports subclasses
 const inquirer = require("inquirer");
-const {Werewolf} = require("./Werewolf.js");
-const {Siren} = require("./Siren.js");
-const {Pegasus} = require("./Pegasus.js");
-const {Centaur} = require("./Centaur");
-const {Phoenix} = require("./Phoenix");
-const {Dragon} = require("./Dragon");
+const {Werewolf} = require("./creatures/Werewolf.js");
+const {Siren} = require("./creatures/Siren.js");
+const {Pegasus} = require("./creatures/Pegasus.js");
+const {Centaur} = require("./creatures/Centaur");
+const {Phoenix} = require("./creatures/Phoenix");
+const {Dragon} = require("./creatures/Dragon");
 
 let myCreature;
 

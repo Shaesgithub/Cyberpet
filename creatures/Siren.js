@@ -1,5 +1,5 @@
 
-const {Creatures} = require("./Creatures.js");
+const {Creatures} = require("../Creatures.js");
 
 class Siren extends Creatures {
     
